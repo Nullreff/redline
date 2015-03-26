@@ -43,6 +43,6 @@
 
     $(function() {
         fetchRedlines();
-        setInterval(fetchRedlines, 1000);
+        setInterval(fetchRedlines, 5000);
     });
 })();
