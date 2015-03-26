@@ -1,0 +1,23 @@
+#items > div {
+    overflow: hidden;
+    border-top: 2px solid black;
+    padding-top: 3px;
+}
+
+.feedback, .drawing {
+    float: left;
+}
+
+.feedback {
+    width: 300px;
+}
+
+.drawing {
+    position: relative;
+}
+
+.redline {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

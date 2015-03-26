@@ -1,0 +1,26 @@
+#panel
+  %button#submit Submit Redline &amp; Feedback
+  %textarea#feedback
+#redline
+  #controls
+    %ul
+      %li
+        %button.selected{'data-mode' => 'draw'} Draw
+      %li
+        %button{'data-mode' => 'erase'} Erase
+      %li
+        %button{'data-mode' => 'move'} Move
+    .small-circle
+    %input#size{type: 'range'}
+    .large-circle
+  #drawing
+    %img{src: @image, alt: 'Artwork'}
+    %canvas
+#done{style: 'display: none'}
+  %div
+    %h3 Success
+    %p Your redline has been submitted
+
+%script{type: 'text/javascript', src: 'https://code.jquery.com/jquery-2.1.1.min.js'}
+%script{type: 'text/javascript', src: '/js/common.js'}
+%script{type: 'text/javascript', src: '/js/new.js'}

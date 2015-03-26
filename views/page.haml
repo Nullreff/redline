@@ -1,0 +1,15 @@
+!!! 5
+%html{lang: 'en'}
+  %head
+    %title Redline
+    %meta{charset: 'utf-8'}/
+    %meta{name: 'description', content: 'Quick and simple art feedback'}
+    %link{href: '/css/redline.css', rel: 'stylesheet', type: 'text/css'}
+    - if request.path.include? 'new'
+      %link{href: '/css/new.css', rel: 'stylesheet', type: 'text/css'}
+    - if request.path.include? 'view'
+      %link{href: '/css/view.css', rel: 'stylesheet', type: 'text/css'}
+    - if Redline.config[:google_analytics]
+      = add_google_analytics(Redline.config[:google_analytics])
+  %body
+    ~ yield

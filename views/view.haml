@@ -1,0 +1,25 @@
+%h1 Success
+%p
+  Share the link
+  %a{href: @link, target: '_blank'}= @link
+  with whoever you want to give you feedback.
+  %br
+  Redlines will show up below as they're submitted.
+  The page check for updates automatically so there is no need to refresh.
+  %br
+  If you have any questions, feel free to email
+  %a{href: 'mailto: contact@nullreff.net'} contact@nullreff.net
+
+%p
+  There have been
+  %label#submissions 0
+  submissions so far...
+
+#items
+
+%input#baseUrl{type: 'hidden', value: @base_url}
+%input#artworkUrl{type: 'hidden', value: @artwork_url}
+
+%script{type: 'text/javascript', src: 'https://code.jquery.com/jquery-2.1.1.min.js'}
+%script{type: 'text/javascript', src: '/js/common.js'}
+%script{type: 'text/javascript', src: '/js/view.js'}
