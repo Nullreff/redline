@@ -34,10 +34,13 @@
         var imgAt = {};
         var clickAt = {};
 
+        var drawSlider = 10;
+        var eraseSlider = 50;
+
+        $('#size').val(drawSlider);
+
         var c = $('#drawing canvas')[0].getContext('2d');
         var compositonDefault = c.globalCompositeOperation;
-
-        $('#size').val(10);
 
         resizeContainers();
         $(window).on('resize', function() {
@@ -102,7 +105,16 @@
         $('#controls li button').click(function() {
             $('#controls li button').removeClass('selected');
             $(this).addClass('selected');
+            switch (mode) {
+                case 'draw': drawSlider = $('#size').val(); break;
+                case 'erase': eraseSlider = $('#size').val(); break;
+            }
             mode = $(this).attr('data-mode');
+            switch (mode) {
+                case 'draw': $('#size').val(drawSlider); $('#sizeControl').show(); break;
+                case 'erase': $('#size').val(eraseSlider); $('#sizeControl').show(); break;
+                default: $('#sizeControl').hide();
+            }
         });
 
         $('#submit').click(function() {

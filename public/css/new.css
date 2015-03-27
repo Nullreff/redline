@@ -43,7 +43,7 @@ button, a.button {
     overflow: hidden;
 }
 
-#controls > * {
+#controls > *, #sizeControl > * {
     padding: 0;
     float: left;
 }

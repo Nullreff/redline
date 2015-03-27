@@ -10,9 +10,10 @@
         %button{'data-mode' => 'erase'} Erase
       %li
         %button{'data-mode' => 'move'} Move
-    .small-circle
-    %input#size{type: 'range'}
-    .large-circle
+    #sizeControl
+      .small-circle
+      %input#size{type: 'range'}
+      .large-circle
   #drawing
     %img{src: @image, alt: 'Artwork'}
     %canvas
