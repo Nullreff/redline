@@ -11,8 +11,9 @@
             }
             lastKeys = keys;
 
-            var items = [];
-            var requests = $.map(keys.split('\n'), function(key) {
+            var parts = keys.split('\n');
+            var items = new Array(parts.length);
+            var requests = $.map(parts, function(key, i) {
                 return $.get(baseUrl + key).done(function(data) {
                     var json = JSON.parse(data);
                     var feedback = $('<div/>').text(json.feedback).addClass('feedback');
@@ -22,7 +23,7 @@
                     var item = $('<div/>').append(feedback)
                                           .append(artwork)
                                           .attr('id', key);
-                    items.push(item);
+                    items[i] = item;
                 }).fail(function() {
                     console.log('Failed to fetch data for key ' + key);
                 });
@@ -31,7 +32,9 @@
             $.when.apply($, requests).done(function () {
                 $('#items').empty();
                 $.each(items, function(i, item) {
-                    $('#items').append(item);
+                    if (item) {
+                        $('#items').append(item);
+                    }
                 });
                 $('#submissions').text(items.length);
             });
